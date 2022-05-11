@@ -1,0 +1,71 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-family: helvetica;
+    font-size: $units * 2;
+    color: $text;
+}
+body {
+    background-color: $primary;
+}
+#app {
+    width: 100vw;
+    height: 100vh;
+    @include flex(column, center, center);
+}
+#stats {
+    margin-bottom: $units * 4;
+    width: $units * 60;
+    height: $units * 12;
+    background-color: $secondary;
+    @include flex(row, center, space-evenly);
+    @include round;
+    > div {
+        height: 100%;
+        font-size: $units * 2;
+        @include flex(column, center, space-evenly);
+        p:last-of-type {
+            font-size: $units * 4;
+            color: $accent;
+        }
+    }
+}
+#board {
+    padding: $units * 2;
+    width: $units * 60;
+    height: $units * 60;
+    background-color: $secondary;
+    @include flex(column, flex-start, flex-start);
+    @include round;
+    > div {
+        margin-bottom: $units * 2;
+        width: 100%;
+        height: calc((100% - ($units * 6)) / 4);
+        @include flex(row, center, flex-start);
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        > div {
+            margin-right: $units * 2;
+            width: 25%;
+            height: 100%;
+            background-color: $tertiary;
+            @include flex(row, center, center);
+            @include round;
+            &:last-of-type {
+                margin-right: 0;
+            }
+            > img {
+                width: 100%;
+                height: 100%;
+                @include round;
+            }
+        }
+    }
+}

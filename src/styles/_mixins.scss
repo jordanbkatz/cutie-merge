@@ -1,0 +1,9 @@
+@mixin flex($direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+@mixin round {
+    border-radius: 9px;
+}
